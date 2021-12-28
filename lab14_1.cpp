@@ -17,3 +17,58 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+
+void stat(const double A[], int N, double B[])
+{
+    double sum = 0, result = 0, multiply = 1, harmonic = 0, max, min = 1;
+    for (int i = 0; i < N; i++)
+    {
+        sum = sum + A[i];
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        result += (A[i] - sum/N) * (A[i] -sum/N);
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        multiply *= A[i];
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        harmonic = harmonic + 1 / A[i];
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        if (A[i] > max)
+        {
+            max = A[i];
+        }
+        else
+        {
+            max = max;
+        }
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        if (A[i] < min)
+        {
+            min = A[i];
+        }
+        else
+        {
+            min = min;
+        }
+    }
+
+    B[0] = sum / N;
+    B[1] = sqrt(result / N);
+    B[2] = pow(multiply,1.0/N);
+    B[3] = N / harmonic;
+    B[4] = max;
+    B[5] = min;
+}
